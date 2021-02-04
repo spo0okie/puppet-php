@@ -6,15 +6,13 @@ define php::module () {
 		undef, '': {
 			#если версия из коробки - просто накатываем модуль
 			if ! defined(Package[$title]){
-				notify{ "adding module ${title} of default version" : }
+				#notify{ "adding module ${title} of default version" : }
 				package {$title:	ensure=>installed}
 			}
 		}
 		default: {
 			#если кастоменая - удаляем модуль из коробки и ставим кастомный
 			#notify{ "adding module ${title} of version $php::version" : }
-
-
 			case $::operatingsystem {
 				'CentOS': {
 					if ! defined(Package[$title]){
