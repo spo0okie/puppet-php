@@ -12,9 +12,8 @@ class php (
 			$prefix=''
 		}
 		default: {
-			$prefix="php$version-"
+			$prefix="php$version"
 		}
 	}
-	include '::php::module::default'
 }
 
