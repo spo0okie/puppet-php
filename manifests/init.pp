@@ -5,8 +5,12 @@
 class php (
 	$version	= '',		#по умолчанию версия php "из коробки"
 ) {
-	require repos
-	require repos::remi
+	case $::operatingsystem {
+		'CentOS': {
+			require repos::remi
+			require repos
+		}
+	}
 	case $version {
 		'': {
 			$prefix=''
